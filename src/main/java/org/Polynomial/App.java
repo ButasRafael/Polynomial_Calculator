@@ -17,18 +17,16 @@ public class App extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(400, 300));
 
-        // Set FlatLaf look and feel
         FlatDarkLaf.install();
 
         JPanel panel = new JPanel(new GridBagLayout());
-        panel.setBorder(new EmptyBorder(20, 20, 20, 20)); // Add padding around the panel
-        panel.setBackground(new Color(60, 63, 65)); // Dark gray background
+        panel.setBorder(new EmptyBorder(20, 20, 20, 20));
+        panel.setBackground(new Color(60, 63, 65));
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(5, 5, 5, 5);
 
-        // Polynomial 1 components
         JLabel polynomial1Label = new JLabel("Polynomial 1:");
         polynomial1Label.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         polynomial1Field = new JTextField(20);
@@ -39,7 +37,6 @@ public class App extends JFrame implements ActionListener {
         gbc.gridx = 1;
         panel.add(polynomial1Field, gbc);
 
-        // Polynomial 2 components
 
         JLabel polynomial2Label = new JLabel("Polynomial 2:");
         polynomial2Label.setFont(new Font("Times New Roman", Font.PLAIN, 14));
@@ -51,18 +48,16 @@ public class App extends JFrame implements ActionListener {
         gbc.gridx = 1;
         panel.add(polynomial2Field, gbc);
 
-        // Operation buttons
         String[] operationTexts = {"+", "-", "*", "/", "Integrate", "Derive"};
         for (int i = 0; i < operationTexts.length; i++) {
             addButton(panel, operationTexts[i], i % 2, i / 2 + 2);
         }
 
-        // Result label
         JLabel resultTitleLabel = new JLabel("Result:");
         resultTitleLabel.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         resultLabel = new JLabel();
         resultLabel.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        resultLabel.setForeground(Color.WHITE); // White text color
+        resultLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
         gbc.gridy = 7;
         gbc.gridwidth = 2;
@@ -71,19 +66,19 @@ public class App extends JFrame implements ActionListener {
         panel.add(resultLabel, gbc);
 
         add(panel);
-        pack(); // Adjust frame size to fit components
-        setLocationRelativeTo(null); // Center the frame on the screen
+        pack();
+        setLocationRelativeTo(null);
     }
 
     private void addButton(JPanel panel, String text, int gridX, int gridY) {
         JButton button = new JButton(text);
         button.addActionListener(this);
-        button.setBackground(Color.WHITE); // White background
-        button.setForeground(Color.BLACK); // Black text color
-        button.setFocusPainted(false); // Remove focus border
-        button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Add padding
-        button.setFont(new Font("Times New Roman", Font.PLAIN, 14)); // Custom font
-        button.setPreferredSize(new Dimension(100, 30)); // Set button size
+        button.setBackground(Color.WHITE);
+        button.setForeground(Color.BLACK);
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        button.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+        button.setPreferredSize(new Dimension(100, 30));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = gridX;
         gbc.gridy = gridY;
@@ -95,7 +90,7 @@ public class App extends JFrame implements ActionListener {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
-                // Set FlatLaf look and feel
+
                 FlatDarkLaf.install();
             } catch (Exception ex) {
                 ex.printStackTrace();
