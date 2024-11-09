@@ -42,7 +42,7 @@ The application structure follows a clear UML package design:
 1. Clone the repository:
  ```
 git clone https://github.com/ButasRafael/Polynomial_Calculator.git
-cd polynomial-calculator
+cd Polynomial_Calculator
 ```
 2. Build the project with Maven:
 ```
